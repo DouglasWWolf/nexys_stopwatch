@@ -7,7 +7,8 @@
       "name": "top_level",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.1"
+      "tool_version": "2021.1",
+      "validated": "true"
     },
     "design_tree": {
       "source_100mhz": {
@@ -22,8 +23,8 @@
       "start_button": "",
       "clear_button": "",
       "stopwatch": {
-        "sw_configuration": "",
-        "stopwatch": ""
+        "stopwatch": "",
+        "sw_configuration": ""
       },
       "sevenseg_driver": ""
     },
@@ -37,11 +38,43 @@
     "ports": {
       "CLK100MHZ": {
         "type": "clk",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "top_level_CLK100MHZ",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       },
       "CPU_RESETN": {
         "type": "rst",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       },
       "AN": {
         "direction": "O",
@@ -861,6 +894,66 @@
           }
         },
         "components": {
+          "stopwatch": {
+            "vlnv": "xilinx.com:module_ref:stopwatch:1.0",
+            "xci_name": "top_level_stopwatch_0_0",
+            "xci_path": "ip/top_level_stopwatch_0_0/top_level_stopwatch_0_0.xci",
+            "inst_hier_path": "stopwatch/stopwatch",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "stopwatch",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "ip_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "ip_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "/source_100mhz/system_clock_clk_out1",
+                    "value_src": "ip_prop"
+                  }
+                }
+              },
+              "start": {
+                "direction": "I"
+              },
+              "clear": {
+                "direction": "I"
+              },
+              "digit_enable": {
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "dp_enable": {
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "test_value": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "latch_test_value": {
+                "direction": "I"
+              },
+              "display": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
           "sw_configuration": {
             "vlnv": "xilinx.com:module_ref:configuration:1.0",
             "xci_name": "top_level_configuration_0_0",
@@ -894,8 +987,8 @@
                     "value_src": "constant"
                   },
                   "ADDR_WIDTH": {
-                    "value": "32",
-                    "value_src": "constant"
+                    "value": "7",
+                    "value_src": "auto"
                   },
                   "AWUSER_WIDTH": {
                     "value": "0",
@@ -994,7 +1087,7 @@
                   "AWADDR": {
                     "physical_name": "S_AXI_AWADDR",
                     "direction": "I",
-                    "left": "31",
+                    "left": "6",
                     "right": "0"
                   },
                   "AWPROT": {
@@ -1048,7 +1141,7 @@
                   "ARADDR": {
                     "physical_name": "S_AXI_ARADDR",
                     "direction": "I",
-                    "left": "31",
+                    "left": "6",
                     "right": "0"
                   },
                   "ARPROT": {
@@ -1134,52 +1227,6 @@
                 "direction": "O"
               }
             }
-          },
-          "stopwatch": {
-            "vlnv": "xilinx.com:module_ref:stopwatch:1.0",
-            "xci_name": "top_level_stopwatch_0_0",
-            "xci_path": "ip/top_level_stopwatch_0_0/top_level_stopwatch_0_0.xci",
-            "inst_hier_path": "stopwatch/stopwatch",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "stopwatch",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I"
-              },
-              "start": {
-                "direction": "I"
-              },
-              "clear": {
-                "direction": "I"
-              },
-              "digit_enable": {
-                "direction": "O",
-                "left": "7",
-                "right": "0"
-              },
-              "dp_enable": {
-                "direction": "O",
-                "left": "7",
-                "right": "0"
-              },
-              "test_value": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "latch_test_value": {
-                "direction": "I"
-              },
-              "display": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              }
-            }
           }
         },
         "interface_nets": {
@@ -1218,8 +1265,8 @@
           "source_100mhz_clk_100mhz": {
             "ports": [
               "clk",
-              "sw_configuration/clk",
-              "stopwatch/clk"
+              "stopwatch/clk",
+              "sw_configuration/clk"
             ]
           },
           "source_100mhz_peripheral_aresetn": {

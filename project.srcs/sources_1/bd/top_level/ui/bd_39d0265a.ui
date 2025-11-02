@@ -40,8 +40,8 @@ preplace netloc uart_UART 1 2 3 NJ 430 NJ 430 NJ
 levelinfo -pg 1 0 180 480 780 1160 1340
 pagesize -pg 1 -db -bbox -sgen -150 0 1460 720
 ",
-   "No Loops_ScaleFactor":"0.846926",
-   "No Loops_TopLeft":"-142,-37",
+   "No Loops_ScaleFactor":"0.920326",
+   "No Loops_TopLeft":"-138,-13",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
 preplace port port-id_CLK100MHZ -pg 1 -lvl 0 -x -90 -y -230 -defaultsOSRD

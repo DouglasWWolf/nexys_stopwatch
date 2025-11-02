@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x8EDB820AD1B87A8",
+      "boundary_crc": "0xF366A9A94A00F104",
       "design_src": "SBD",
       "device": "xc7a100tcsg324-1",
       "name": "bd_f519",
@@ -176,8 +176,8 @@
         "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
         "parameters": {
           "ADDR_WIDTH": {
-            "value": "32",
-            "value_src": "default"
+            "value": "7",
+            "value_src": "ip_prop"
           },
           "ARUSER_WIDTH": {
             "value": "0",
@@ -1805,7 +1805,7 @@
         "inst_hier_path": "m00_sc2axi",
         "parameters": {
           "AXI_ADDR_WIDTH": {
-            "value": "32"
+            "value": "7"
           },
           "AXI_ID_WIDTH": {
             "value": "1"
@@ -1894,7 +1894,7 @@
             "inst_hier_path": "m00_exit_pipeline/m00_exit",
             "parameters": {
               "ADDR_WIDTH": {
-                "value": "32"
+                "value": "7"
               },
               "ENABLE_PIPELINING": {
                 "value": "0"
